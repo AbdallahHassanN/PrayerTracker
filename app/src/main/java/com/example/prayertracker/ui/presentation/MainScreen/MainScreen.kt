@@ -12,6 +12,9 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.navapp.Screens
 import com.example.prayertracker.R
+import com.example.prayertracker.common.Constants.forgottenPrayersCardText
+import com.example.prayertracker.common.Constants.latePrayerRecordCardText
+import com.example.prayertracker.common.Constants.prayerLogCardText
 import com.example.prayertracker.common.PrayerCard
 import com.example.prayertracker.common.TopBar
 
@@ -30,12 +33,12 @@ fun MainScreen(
                 .padding(10.dp),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            PrayerCard(text = "تسجيل الفرائض",
+            PrayerCard(text = latePrayerRecordCardText,
                 imageResource = R.drawable.download,
                 onClick = {
                     navController.navigate(Screens.LatePrayerRecord.route)
                 })
-            PrayerCard(text = "الصلوات المتبقيه",
+            PrayerCard(text = forgottenPrayersCardText,
                 imageResource = R.drawable.mosque,
                 onClick = {
                     navController.navigate(Screens.ForgottenPrayers.route)
@@ -47,7 +50,7 @@ fun MainScreen(
                 .padding(top = 100.dp),
             horizontalArrangement = Arrangement.Center
         ) {
-            PrayerCard(text = "قضاء الصلوات",
+            PrayerCard(text = prayerLogCardText,
                 imageResource = R.drawable.praying,
                 onClick = {
                     navController.navigate(Screens.PrayerLog.route)
