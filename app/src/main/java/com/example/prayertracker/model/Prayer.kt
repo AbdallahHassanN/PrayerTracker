@@ -8,8 +8,8 @@ import androidx.room.PrimaryKey
 )
 data class Prayer(
     @PrimaryKey(autoGenerate = true)
-    val salahId: Int?=null,
-    val salahNo:Int?= null,
-    val salahName: String,
-    val salahCount: Int,
+    var prayerId: Int?=null,
+    val prayerNo:Int?= null,
+    val prayerName: String,
+    var prayerCount: Int,
 )

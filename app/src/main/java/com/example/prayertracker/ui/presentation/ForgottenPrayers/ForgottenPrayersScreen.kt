@@ -8,40 +8,59 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
-import com.example.prayertracker.common.Constants
-import com.example.prayertracker.common.Constants.elAishaa
-import com.example.prayertracker.common.Constants.elAsr
-import com.example.prayertracker.common.Constants.elDohr
-import com.example.prayertracker.common.Constants.elFagr
-import com.example.prayertracker.common.Constants.elMaghrab
-import com.example.prayertracker.common.PrayerCard
+import com.example.prayertracker.common.Constants.Isha
+import com.example.prayertracker.common.Constants.Asr
+import com.example.prayertracker.common.Constants.Dhuhr
+import com.example.prayertracker.common.Constants.Fajr
+import com.example.prayertracker.common.Constants.Maghrib
+import com.example.prayertracker.common.Constants.TAG
 import com.example.prayertracker.common.PrayerCountText
 import com.example.prayertracker.common.TopBar
 
 
 @Composable
 fun ForgottenPrayersScreen(
-) {
+    viewModel: ForgottenPrayersViewModel = hiltViewModel(),
+    ) {
+
+    val fajrCount = viewModel.fajr.value
+    val dhuhrCount = viewModel.dhuhr.value
+    val asrCount = viewModel.asr.value
+    val maghribCount = viewModel.maghrib.value
+    val ishaCount = viewModel.isha.value
+
+    Log.d(TAG,"HH $fajrCount")
     Column(
         modifier = Modifier
             .fillMaxSize()
     ) {
         TopBar()
         Row {
-            PrayerCountText(text = elFagr, count = 0 )
+            PrayerCountText(
+                text = Fajr,
+                count = fajrCount.toString()
+            )
         }
         Row {
-            PrayerCountText(text = elDohr, count = 0 )
+            PrayerCountText(text = Dhuhr,
+                count = dhuhrCount.toString()
+            )
         }
         Row {
-            PrayerCountText(text = elAsr, count = 0 )
+            PrayerCountText(
+                text = Asr,
+                count = asrCount.toString()
+            )
         }
         Row {
-            PrayerCountText(text = elMaghrab, count = 0 )
+            PrayerCountText(text = Maghrib,
+                count = maghribCount.toString()
+            )
         }
         Row {
-            PrayerCountText(text = elAishaa, count = 0 )
+            PrayerCountText(text = Isha,
+                count = ishaCount.toString()
+            )
         }
     }
 }

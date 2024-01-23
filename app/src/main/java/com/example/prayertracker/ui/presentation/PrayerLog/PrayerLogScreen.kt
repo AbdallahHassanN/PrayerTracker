@@ -24,11 +24,11 @@ import com.example.prayertracker.common.ButtonPrayerText
 import com.example.prayertracker.common.Constants.TAG
 import com.example.prayertracker.common.Constants.btnAddText
 import com.example.prayertracker.common.Constants.done
-import com.example.prayertracker.common.Constants.elAishaa
-import com.example.prayertracker.common.Constants.elAsr
-import com.example.prayertracker.common.Constants.elDohr
-import com.example.prayertracker.common.Constants.elFagr
-import com.example.prayertracker.common.Constants.elMaghrab
+import com.example.prayertracker.common.Constants.Isha
+import com.example.prayertracker.common.Constants.Asr
+import com.example.prayertracker.common.Constants.Dhuhr
+import com.example.prayertracker.common.Constants.Fajr
+import com.example.prayertracker.common.Constants.Maghrib
 import com.example.prayertracker.common.Constants.prayer
 import com.example.prayertracker.common.TopBar
 
@@ -37,11 +37,11 @@ import com.example.prayertracker.common.TopBar
 fun PrayerLogScreen(
 ) {
     val radioOptions = listOf(
-        "$done $prayer $elFagr",
-        "$done $prayer $elDohr",
-        "$done $prayer $elAsr",
-        "$done $prayer $elMaghrab",
-        "$done $prayer $elAishaa"
+        "$done $prayer $Fajr",
+        "$done $prayer $Dhuhr",
+        "$done $prayer $Asr",
+        "$done $prayer $Maghrib",
+        "$done $prayer $Isha"
     )
     var selectedOption by remember { mutableStateOf("") }
     Column(

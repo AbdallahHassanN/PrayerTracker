@@ -9,24 +9,22 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.prayertracker.common.Constants.elFagr
+import com.example.prayertracker.common.Constants.Fajr
 import com.example.prayertracker.common.Constants.prayersCount
 
 @Composable
 fun PrayerCountText(
     text: String,
-    count: Int
+    count: String
 ) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
     ) {
         Text(
-            text = "$count",
+            text = count,
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier
                 .wrapContentWidth(Alignment.Start)
@@ -46,5 +44,5 @@ fun PrayerCountText(
 @Preview
 @Composable
 fun Display() {
-    PrayerCountText(text = elFagr, count = 0)
+    PrayerCountText(text = Fajr, count = "0")
 }
