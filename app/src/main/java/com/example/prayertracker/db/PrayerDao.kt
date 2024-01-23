@@ -10,10 +10,10 @@ interface PrayerDao {
    fun upsert(prayer: List<Prayer>)
 
    @Query("Update Prayer SET prayerCount = prayerCount + 1 Where prayerNo = :prayerNo")
-   suspend fun updateSalahCount(prayerNo:Int)
+   suspend fun updatePrayerCount(prayerNo:Int)
 
    @Query("Update Prayer SET prayerCount = prayerCount - 1 Where prayerId = :prayerId AND prayerCount > 0")
-   suspend fun deleteSalahCount(prayerId:Int)
+   suspend fun deletePrayerCount(prayerId:Int)
 
    /*@Query("SELECT * FROM Salah where salahId = :salahId")
    fun getSalahCount(salahId: Int): LiveData<List<Salah>>*/
@@ -22,5 +22,5 @@ interface PrayerDao {
    fun getSalahCount(salahNo:Int): LiveData<List<Salah>>*/
 
    @Query("SELECT prayerCount FROM Prayer where prayerNo = :prayerNo")
-   suspend fun getSalahCount(prayerNo:Int): Int
+   suspend fun getPrayerCount(prayerNo:Int): Int
 }

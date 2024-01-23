@@ -17,7 +17,7 @@ class GetPrayerCountUseCase
 ) {
     suspend fun execute(
         id: Int
-    ) = repo.getSalahCount(prayerNo = id)
+    ) = repo.getPrayerCount(prayerNo = id)
         .flatMapConcat { it ->
             when (it) {
                 is Resource.Error -> {

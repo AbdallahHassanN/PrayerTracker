@@ -13,6 +13,6 @@ interface Repository {
     suspend fun updateSalahCount(prayerNo: Int)
     : Flow<Resource<Prayer>>*/
 
-    suspend fun getSalahCount(prayerNo: Int)
+    suspend fun getPrayerCount(prayerNo: Int)
     : Flow<Resource<Int>>
 }
