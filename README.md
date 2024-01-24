@@ -3,9 +3,10 @@ A prayer tracking application designed to enhance personal accountability and mi
 seamlessly combines technology and spirituality, reflecting my dedication to developing solutions that positively impact daily life.
 
 # Features
-* You can add prayes that you forgot to do.
-* Application will save the count of all the prayes you didn't do.
-
+* Prayer Management: Easily include forgotten prayers.
+* Automatic Tracking: The application records the number of missed prayers for your convenience.
+* Effortless Updates: Seamlessly update your completed prayers.
+  
 # Technologies & Open-source libraries
 * Kotlin mainly, Coroutines combined with Flows.
 * JetPack Compose
