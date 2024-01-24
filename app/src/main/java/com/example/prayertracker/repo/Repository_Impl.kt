@@ -12,28 +12,52 @@ class Repository_Impl(
     private val prayerDao: PrayerDao,
     private val appContext: Context
 ) : Repository {
-    /*override suspend fun deleteSalahCount(prayerId: Int)
-            : Flow<Resource<Prayer>> {
-        TODO("Not yet implemented")
+    override suspend fun deleteSalahCount(prayerId: Int)
+            : Flow<Resource<Unit>> = flow {
+        emit(Resource.Loading(true))
+        try {
+            emit(Resource.Loading(false))
+            val prayerCount = prayerDao.deletePrayerCount(prayerId)
+            emit(
+                Resource.Success(
+                    data = prayerCount
+                )
+            )
+        } catch (e: Exception) {
+            emit(Resource.Error("Error"))
+            Log.d(TAG, "Error when getting count $e")
+        }
     }
 
-    override suspend fun updateSalahCount(prayerNo: Int)
-            : Flow<Resource<Prayer>> {
-        TODO("Not yet implemented")
-    }*/
+    override suspend fun updateSalahCount(prayerId: Int)
+            : Flow<Resource<Unit>> = flow {
+        emit(Resource.Loading(true))
+        try {
+            emit(Resource.Loading(false))
+            val prayerCount = prayerDao.updatePrayerCount(prayerId)
+            emit(
+                Resource.Success(
+                    data = prayerCount
+                )
+            )
+        } catch (e: Exception) {
+            emit(Resource.Error("Error"))
+            Log.d(TAG, "Error when getting count $e")
+        }
+    }
 
-    override suspend fun getPrayerCount(prayerNo: Int)
+    override suspend fun getPrayerCount(prayerId: Int)
             : Flow<Resource<Int>> = flow {
         emit(Resource.Loading(true))
         try {
             emit(Resource.Loading(false))
-            val prayers = prayerDao.getPrayerCount(prayerNo)
+            val prayers = prayerDao.getPrayerCount(prayerId)
             emit(
                 Resource.Success(
                     data = prayers
                 )
             )
-            Log.d(TAG,"RepoImpl $prayers")
+            Log.d(TAG, "RepoImpl $prayers")
         } catch (e: Exception) {
             emit(Resource.Error("Error"))
             Log.d(TAG, "Error when getting count $e")

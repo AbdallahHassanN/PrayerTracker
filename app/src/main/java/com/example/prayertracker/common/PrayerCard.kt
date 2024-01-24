@@ -29,7 +29,7 @@ import com.example.prayertracker.ui.theme.Teal200
 fun PrayerCard(
     text: String,
     imageResource: Int,
-    onClick:() -> Unit
+    onClick: () -> Unit
 ) {
     Card(
         modifier = Modifier
@@ -55,8 +55,10 @@ fun PrayerCard(
                     modifier = Modifier
                         .width(100.dp)
                         .height(100.dp)
-                        .padding(top = 5.dp,
-                            end = 10.dp),
+                        .padding(
+                            top = 5.dp,
+                            end = 10.dp
+                        ),
                     contentScale = ContentScale.Crop
                 )
             }
@@ -65,10 +67,13 @@ fun PrayerCard(
             modifier = Modifier
                 .align(Alignment.End)
         ) {
-            Text(text = text,
+            Text(
+                text = text,
                 modifier = Modifier
-                    .padding(top = 5.dp,
-                        end = 5.dp),
+                    .padding(
+                        top = 5.dp,
+                        end = 5.dp
+                    ),
                 style = MaterialTheme.typography.titleMedium,
                 color = Color.White,
             )

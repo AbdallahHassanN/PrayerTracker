@@ -15,4 +15,5 @@ object Constants {
     const val done = "قضيت"
     const val btnAddText = "اضافه"
     const val btnDoneText = "تم"
+    const val snackBarText = "تم تحديث عدد الصلوات"
 }

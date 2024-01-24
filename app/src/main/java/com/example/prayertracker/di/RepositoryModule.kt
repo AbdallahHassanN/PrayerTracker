@@ -22,6 +22,6 @@ object RepositoryModule {
         prayerDao: PrayerDao,
         @ApplicationContext appContext: Context // Use @ApplicationContext to get the application context
     ): Repository {
-        return Repository_Impl(prayerDao,appContext)
+        return Repository_Impl(prayerDao, appContext)
     }
 }

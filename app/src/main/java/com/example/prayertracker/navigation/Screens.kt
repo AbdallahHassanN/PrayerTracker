@@ -1,6 +1,6 @@
 package com.example.navapp
 
-sealed class Screens(val route:String) {
+sealed class Screens(val route: String) {
     object MainScreen : Screens("mainScreen")
     object ForgottenPrayers : Screens("forgottenPrayers")
     object LatePrayerRecord : Screens("latePrayerRecord")

@@ -21,7 +21,7 @@ import com.example.prayertracker.common.TopBar
 @Composable
 fun ForgottenPrayersScreen(
     viewModel: ForgottenPrayersViewModel = hiltViewModel(),
-    ) {
+) {
 
     val fajrCount = viewModel.fajr.value
     val dhuhrCount = viewModel.dhuhr.value
@@ -29,7 +29,7 @@ fun ForgottenPrayersScreen(
     val maghribCount = viewModel.maghrib.value
     val ishaCount = viewModel.isha.value
 
-    Log.d(TAG,"HH $fajrCount")
+    Log.d(TAG, "HH $fajrCount")
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -42,7 +42,8 @@ fun ForgottenPrayersScreen(
             )
         }
         Row {
-            PrayerCountText(text = Dhuhr,
+            PrayerCountText(
+                text = Dhuhr,
                 count = dhuhrCount.toString()
             )
         }
@@ -53,12 +54,14 @@ fun ForgottenPrayersScreen(
             )
         }
         Row {
-            PrayerCountText(text = Maghrib,
+            PrayerCountText(
+                text = Maghrib,
                 count = maghribCount.toString()
             )
         }
         Row {
-            PrayerCountText(text = Isha,
+            PrayerCountText(
+                text = Isha,
                 count = ishaCount.toString()
             )
         }

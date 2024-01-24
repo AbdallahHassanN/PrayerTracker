@@ -10,14 +10,13 @@ import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
 
-class GetPrayerCountUseCase
-@Inject constructor(
+class DeletePrayerCountUseCase @Inject constructor(
     private val repo: Repository,
     @ApplicationContext private val context: Context
 ) {
     suspend fun execute(
         id: Int
-    ) = repo.getPrayerCount(prayerId = id)
+    ) = repo.deleteSalahCount(prayerId = id)
         .flatMapConcat { it ->
             when (it) {
                 is Resource.Error -> {

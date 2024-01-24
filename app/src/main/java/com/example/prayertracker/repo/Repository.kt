@@ -2,17 +2,15 @@ package com.example.prayertracker.repo
 
 
 import com.example.prayertracker.common.Resource
-import com.example.prayertracker.model.Prayer
 import kotlinx.coroutines.flow.Flow
 
 interface Repository {
-    /*suspend fun deleteSalahCount(prayerId: Int)
-    : Flow<Resource<Prayer>>
-        TODO("Not yet implemented")
+    suspend fun deleteSalahCount(prayerId: Int)
+            : Flow<Resource<Unit>>
 
-    suspend fun updateSalahCount(prayerNo: Int)
-    : Flow<Resource<Prayer>>*/
+    suspend fun updateSalahCount(prayerId: Int)
+            : Flow<Resource<Unit>>
 
-    suspend fun getPrayerCount(prayerNo: Int)
-    : Flow<Resource<Int>>
+    suspend fun getPrayerCount(prayerId: Int)
+            : Flow<Resource<Int>>
 }

@@ -28,6 +28,7 @@ class ForgottenPrayersViewModel
     val isha: MutableState<Int?> = mutableStateOf(0)
 
     val loading = mutableStateOf(false)
+
     init {
         getPrayerCount(1, fajr)
         getPrayerCount(2, dhuhr)
@@ -36,7 +37,7 @@ class ForgottenPrayersViewModel
         getPrayerCount(5, isha)
     }
 
-    private fun getPrayerCount (
+    private fun getPrayerCount(
         id: Int,
         count: MutableState<Int?>
     ) = viewModelScope.launch {
@@ -58,10 +59,12 @@ class ForgottenPrayersViewModel
                 loading.value = false
                 Log.d(TAG, "VM Error response")
             }
+
             is Resource.Loading -> {
                 loading.value = true
                 Log.d(TAG, "VM Loading")
             }
+
             is Resource.Success -> {
                 count.value = response.data!!
                 loading.value = false

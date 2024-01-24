@@ -21,10 +21,11 @@ fun loadPicture(
     Glide.with(LocalContext.current)
         .asBitmap()
         .load(image)
-        .into(object: CustomTarget<Bitmap>(){
+        .into(object : CustomTarget<Bitmap>() {
             override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
                 bitmapState.value = resource
             }
+
             override fun onLoadCleared(placeholder: Drawable?) {
             }
         })

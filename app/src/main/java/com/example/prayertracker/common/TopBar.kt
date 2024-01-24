@@ -20,11 +20,11 @@ import com.example.navapp.Screens
 import com.example.prayertracker.ui.theme.Teal200
 
 @Composable
-fun TopBar(){
+fun TopBar() {
     Surface(
         modifier = Modifier
             .fillMaxWidth(),
-        color = Teal200 ,
+        color = Teal200,
     ) {
         Column {
             Row(

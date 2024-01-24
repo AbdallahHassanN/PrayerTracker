@@ -14,6 +14,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.concurrent.Executors
 import javax.inject.Singleton
 
@@ -26,6 +29,7 @@ object AppModule {
         return app as BaseApplication
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     @Provides
     @Singleton
     fun provideSalahDatabase(@ApplicationContext context: Context): PrayerDatabase {
@@ -33,23 +37,26 @@ object AppModule {
             context.applicationContext,
             PrayerDatabase::class.java,
             "prayer_db.db"
-        ).fallbackToDestructiveMigration()
+        ).fallbackToDestructiveMigration().build()
 
-        val database = databaseBuilder.build()
 
         // Provide initial values
-        Executors.newSingleThreadExecutor().execute {
-            database.prayerDao.upsert(getInitialPrayerList())
+        GlobalScope.launch {
+            // Check if the database is empty before inserting initial values
+            if (databaseBuilder.prayerDao.getInitialValues() == 0) {
+                databaseBuilder.prayerDao.upsert(getInitialPrayerList())
+            }
         }
-        return database
+
+        return databaseBuilder
     }
 
     private fun getInitialPrayerList(): List<Prayer> {
-        val fajr = Prayer(1, 1, "Fajr", 0)
-        val dhuhr = Prayer(2, 2, "Dhuhr", 0)
-        val asr = Prayer(3, 3, "Asr", 0)
-        val maghrib = Prayer(4, 4, "Maghrib", 0)
-        val isha = Prayer(5, 5, "Isha", 0)
+        val fajr = Prayer(1, "Fajr", 0)
+        val dhuhr = Prayer(2, "Dhuhr", 0)
+        val asr = Prayer(3, "Asr", 0)
+        val maghrib = Prayer(4, "Maghrib", 0)
+        val isha = Prayer(5, "Isha", 0)
 
         return listOf(fajr, dhuhr, asr, maghrib, isha)
     }

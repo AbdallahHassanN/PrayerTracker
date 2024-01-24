@@ -14,23 +14,24 @@ import org.w3c.dom.Text
 
 @Composable
 fun ButtonPrayerText(
-    text:String,
-    onClick:() -> Unit
-){
-    Button(onClick = onClick,
+    text: String,
+    onClick: () -> Unit
+) {
+    Button(
+        onClick = onClick,
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier
             .fillMaxWidth()
             .height(48.dp)
             .padding(start = 20.dp, end = 20.dp)
-        ) {
+    ) {
         Text(text = text)
     }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun Display3(){
+fun Display3() {
     ButtonPrayerText(text = "الحمدالله") {
     }
 }
