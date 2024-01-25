@@ -1,4 +1,4 @@
-package com.example.steamdbmockup.ui.presentation.DetailScreen
+package com.example.prayertracker.ui.presentation.ForgottenPrayers
 
 
 import android.util.Log

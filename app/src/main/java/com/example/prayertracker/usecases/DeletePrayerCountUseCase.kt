@@ -6,6 +6,7 @@ import com.example.prayertracker.common.Constants
 import com.example.prayertracker.common.Resource
 import com.example.prayertracker.repo.Repository
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.flatMapConcat
 import kotlinx.coroutines.flow.flowOf
 import javax.inject.Inject
@@ -14,6 +15,7 @@ class DeletePrayerCountUseCase @Inject constructor(
     private val repo: Repository,
     @ApplicationContext private val context: Context
 ) {
+    @OptIn(ExperimentalCoroutinesApi::class)
     suspend fun execute(
         id: Int
     ) = repo.deleteSalahCount(prayerId = id)

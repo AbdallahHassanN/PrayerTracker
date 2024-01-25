@@ -1,15 +1,12 @@
-package com.example.steamdbmockup.ui.presentation.DetailScreen
+package com.example.prayertracker.ui.presentation.ForgottenPrayers
 
 import android.util.Log
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.prayertracker.common.Constants
 import com.example.prayertracker.common.Constants.TAG
 import com.example.prayertracker.common.Resource
-import com.example.prayertracker.model.Prayer
 import com.example.prayertracker.usecases.GetPrayerCountUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch

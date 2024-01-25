@@ -2,7 +2,6 @@ package com.example.prayertracker.ui.presentation.LatePrayerRecord
 
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,7 +27,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.prayertracker.common.ButtonPrayerText
-import com.example.prayertracker.common.Constants.TAG
 import com.example.prayertracker.common.Constants.Isha
 import com.example.prayertracker.common.Constants.Asr
 import com.example.prayertracker.common.Constants.Dhuhr
@@ -59,35 +57,34 @@ fun LatePrayerRecordScreen(
         topBar = { TopBar() },
         content = {
             Column(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .padding(top = 50.dp)
+                    .fillMaxSize(),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Column(
-                    modifier = Modifier.padding(8.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
-                ) {
-                    radioOptions.forEach { prayerName ->
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Text(
-                                text = prayerName,
-                                style = MaterialTheme.typography.titleLarge,
-                                modifier = Modifier
-                                    .padding(start = 8.dp)
-                                    .padding(10.dp)
-                                    .wrapContentWidth(Alignment.End)
-                                    .weight(1f)
-                            )
-                            RadioButton(
-                                selected = (prayerName == selectedOption),
-                                onClick = {
-                                    selectedOption = prayerName
-                                }
-                            )
-                        }
+                radioOptions.forEach { prayerName ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    ) {
+                        Text(
+                            text = prayerName,
+                            style = MaterialTheme.typography.titleLarge,
+                            modifier = Modifier
+                                .padding(start = 8.dp)
+                                .wrapContentWidth(Alignment.End)
+                                .weight(1f)
+                        )
+                        RadioButton(
+                            selected = (prayerName == selectedOption),
+                            onClick = {
+                                selectedOption = prayerName
+                            }
+                        )
                     }
                 }
+
                 Row {
                     ButtonPrayerText(text = btnAddText) {
                         when (selectedOption) {

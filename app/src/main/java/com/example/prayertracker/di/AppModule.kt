@@ -1,10 +1,7 @@
 package com.example.prayertracker.di
 
-import android.app.Application
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.prayertracker.BaseApplication
 import com.example.prayertracker.model.Prayer
 import com.example.slwat.db.PrayerDao
@@ -17,7 +14,6 @@ import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.util.concurrent.Executors
 import javax.inject.Singleton
 
 @Module

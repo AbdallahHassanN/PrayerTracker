@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.prayertracker.common.Constants
 import com.example.prayertracker.common.Resource
 import com.example.prayertracker.usecases.DeletePrayerCountUseCase
-import com.example.prayertracker.usecases.UpdatePrayerCountUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch

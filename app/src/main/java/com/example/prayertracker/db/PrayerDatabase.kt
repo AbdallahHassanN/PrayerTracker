@@ -1,7 +1,6 @@
 package com.example.slwat.db
 
 import androidx.room.Database
-import androidx.room.Query
 import androidx.room.RoomDatabase
 import com.example.prayertracker.model.Prayer
 

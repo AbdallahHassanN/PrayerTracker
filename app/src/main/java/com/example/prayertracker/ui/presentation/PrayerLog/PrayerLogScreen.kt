@@ -31,7 +31,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.prayertracker.common.ButtonPrayerText
 import com.example.prayertracker.common.Constants
 import com.example.prayertracker.common.Constants.TAG
-import com.example.prayertracker.common.Constants.btnAddText
 import com.example.prayertracker.common.Constants.done
 import com.example.prayertracker.common.Constants.Isha
 import com.example.prayertracker.common.Constants.Asr
@@ -63,85 +62,83 @@ fun PrayerLogScreen(
         topBar = { TopBar() },
         content = {
             Column(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .padding(top = 50.dp)
+                    .fillMaxSize(),
+                verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
-                Column(
-                    modifier = Modifier.padding(8.dp),
-                    verticalArrangement = Arrangement.spacedBy(16.dp)
-                ) {
-                    radioOptions.forEach { prayerName ->
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Text(
-                                text = prayerName,
-                                style = MaterialTheme.typography.titleLarge,
-                                modifier = Modifier
-                                    .padding(start = 8.dp)
-                                    .padding(10.dp)
-                                    .wrapContentWidth(Alignment.End)
-                                    .weight(1f)
-                            )
-                            RadioButton(
-                                selected = (prayerName == selectedOption),
-                                onClick = {
-                                    selectedOption = prayerName
-                                }
-                            )
-                        }
+                radioOptions.forEach { prayerName ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                    ) {
+                        Text(
+                            text = prayerName,
+                            style = MaterialTheme.typography.titleLarge,
+                            modifier = Modifier
+                                .padding(start = 8.dp)
+                                .wrapContentWidth(Alignment.End)
+                                .weight(1f)
+                        )
+                        RadioButton(
+                            selected = (prayerName == selectedOption),
+                            onClick = {
+                                selectedOption = prayerName
+                            }
+                        )
                     }
-                    Row {
-                        ButtonPrayerText(text = btnDoneText) {
-                            when (selectedOption) {
-                                radioOptions[0] -> {
-                                    viewModel.deletePrayerCount(1)
-                                    snackbarVisible = true
-                                    Log.d(TAG, radioOptions[0])
-                                }
+                }
+                Row {
+                    ButtonPrayerText(text = btnDoneText) {
+                        when (selectedOption) {
+                            radioOptions[0] -> {
+                                viewModel.deletePrayerCount(1)
+                                snackbarVisible = true
+                                Log.d(TAG, radioOptions[0])
+                            }
 
-                                radioOptions[1] -> {
-                                    viewModel.deletePrayerCount(2)
-                                    snackbarVisible = true
-                                    Log.d(TAG, radioOptions[1])
-                                }
+                            radioOptions[1] -> {
+                                viewModel.deletePrayerCount(2)
+                                snackbarVisible = true
+                                Log.d(TAG, radioOptions[1])
+                            }
 
-                                radioOptions[2] -> {
-                                    viewModel.deletePrayerCount(3)
-                                    snackbarVisible = true
-                                    Log.d(TAG, radioOptions[2])
-                                }
+                            radioOptions[2] -> {
+                                viewModel.deletePrayerCount(3)
+                                snackbarVisible = true
+                                Log.d(TAG, radioOptions[2])
+                            }
 
-                                radioOptions[3] -> {
-                                    viewModel.deletePrayerCount(4)
-                                    snackbarVisible = true
-                                    Log.d(TAG, radioOptions[3])
-                                }
+                            radioOptions[3] -> {
+                                viewModel.deletePrayerCount(4)
+                                snackbarVisible = true
+                                Log.d(TAG, radioOptions[3])
+                            }
 
-                                else -> {
-                                    viewModel.deletePrayerCount(5)
-                                    snackbarVisible = true
-                                    Log.d(TAG, radioOptions[4])
-                                }
+                            else -> {
+                                viewModel.deletePrayerCount(5)
+                                snackbarVisible = true
+                                Log.d(TAG, radioOptions[4])
                             }
                         }
                     }
-                    Spacer(modifier = Modifier.weight(1f))
-
-                    LaunchedEffect(snackbarVisible) {
-                        if (snackbarVisible) {
-                            // Reset the state after the Snackbar is shown
-                            snackbarHostState.showSnackbar(Constants.snackBarText)
-                            snackbarVisible = false
-                        }
-                    }
-                    SnackbarHost(
-                        hostState = snackbarHostState,
-                        modifier = Modifier
-                            .padding(16.dp)
-                            .padding(bottom = 16.dp)
-                    )
                 }
+                Spacer(modifier = Modifier.weight(1f))
+
+                LaunchedEffect(snackbarVisible) {
+                    if (snackbarVisible) {
+                        // Reset the state after the Snackbar is shown
+                        snackbarHostState.showSnackbar(Constants.snackBarText)
+                        snackbarVisible = false
+                    }
+                }
+                SnackbarHost(
+                    hostState = snackbarHostState,
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .padding(bottom = 16.dp)
+                )
             }
         }
     )
