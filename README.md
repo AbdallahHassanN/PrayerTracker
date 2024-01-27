@@ -17,5 +17,6 @@ seamlessly combines technology and spirituality, reflecting my dedication to dev
   - Repository pattern.
   - useCases
 * Dependency Injection using HILT
+* Gradle Version catalog
 * [Glide](https://github.com/bumptech/glide) very easy library to load images or thumnails.
 
