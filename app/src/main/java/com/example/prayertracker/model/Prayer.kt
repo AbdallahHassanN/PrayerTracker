@@ -9,7 +9,6 @@ import androidx.room.PrimaryKey
 data class Prayer(
     @PrimaryKey(autoGenerate = true)
     var prayerId: Int? = null,
-    //val prayerNo:Int?= null,
     val prayerName: String,
     var prayerCount: Int,
 )

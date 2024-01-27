@@ -90,6 +90,7 @@ androidx-compose = [
     "compose-lifecycle",
     "compose-bom",
     "androidx-activity-compose",
+    "material3"
 ]
 androidx-hilt-impl = [
     "dagger-hilt",
